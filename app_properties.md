@@ -1,5 +1,5 @@
-# What can we do with the app ?
-app -to> user API.
+# app -to> user API.
+What can we do with the app ?
 ```c#
 class App {
   
@@ -8,6 +8,14 @@ class App {
     Set<Type extending Usable> requirements, 
     List<Type extending Executable> steps
   );
+
+}
+```
+# user -to> app API.
+What are we expecting from the user ?
+```c#
+class User {
+
 
 }
 ```
