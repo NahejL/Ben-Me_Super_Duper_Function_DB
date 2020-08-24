@@ -1,5 +1,6 @@
 # Ben-Me_Super_Duper_Function_DB
 DB/App for "Doables" 
+<div hidden>
 ```PlantUML
 class Doable{
   Any result; // Producables ?
@@ -13,3 +14,4 @@ class Producable{
 
 }
 ```
+</div>
