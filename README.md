@@ -19,19 +19,12 @@ class Usable<E> where E: Executable{
 ```c#
 class Computable: Executable<Instance, Instance, Computable>{
 
-  Instance call(Set<Instance> params){
-    
-    Instance cache = null;
-    
+  call() =>
     for(step in steps)
-      cache = step.call({
+      result = step.call({
         ...requirements,
-        cache
+        result
       })
-    
-    return cache;
-    
-  }
 
 }
 
