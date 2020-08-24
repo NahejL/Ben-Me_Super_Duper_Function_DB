@@ -13,4 +13,8 @@ class Producable<T>{
 class Usable<T>{
   T get value;
 }
+
+class Executable<[types]> where types:> Usable{
+   Producable call(types);
+}
 ```
