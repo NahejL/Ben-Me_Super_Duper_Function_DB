@@ -14,7 +14,7 @@ class Usable<T>{
   T get value;
 }
 
-class Executable<Result, [Params]> where Params:> Usable, Result:> Producable {
+class Executable<Result, Params as [Param]> where Param:> Usable, Result:> Producable {
    Result call(Params);
 }
 ```
