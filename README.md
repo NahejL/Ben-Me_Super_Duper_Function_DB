@@ -1,13 +1,17 @@
 # Ben-Me_Super_Duper_Function_DB
 DB/App for "Executables" 
-```PlantUML
-class Executable{
-  Any result; // Producables ?
-  Set<Any> requirements; // Usables ?
-  List<Any> steps; // Executable ?
+```c#
+class Executable <P, U, E> where P extends Producable, U extends Usable, E extends Executable{
+  P result;
+  Set<U> requirements;
+  List<E> steps;
 }
 
-class Producable{}
+class Producable<E> where E extends Executable{
+  Set<E> producers;
+}
 
-class Usable{}
+class Usable<E> where E extends Executable{
+  Set<E> users;
+}
 ```
