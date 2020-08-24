@@ -1,13 +1,13 @@
 # Ben-Me_Super_Duper_Function_DB
-DB/App for "Doables" 
-DB/App for "Doables" 
+DB/App for "Executables" 
 ```PlantUML
-class Doable{
+class Executable{
   Any result; // Producables ?
   Set<Any> requirements; // Usables ?
-  List<Any> steps; // Doables ?
+  List<Any> steps; // Executable ?
 }
-class Producable{
-  
-}
+
+class Producable{}
+
+class Usable{}
 ```
