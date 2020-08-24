@@ -4,7 +4,7 @@ What can we do with the app ?
 class App {
   
   createExecutable(
-    Type extending Producable result, 
+    <Type extending Producable> result, 
     Set<Type extending Usable> requirements, 
     List<Type extending Executable> steps
   );
