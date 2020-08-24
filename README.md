@@ -1,5 +1,5 @@
 # Ben-Me_Super_Duper_Function_DB
-DB/App for "Executables" 
+DB/App/Dictionary for/of Executables/Protocoles/DIYs 
 ```c#
 class Executable<P, U, E> where P: Producable, U: Usable, E: Executable{
   P result;
@@ -17,9 +17,23 @@ class Usable<E> where E: Executable{
 ```
 
 ```c#
-class Computable<P, U, E>: Executable<P, U, V>{
+class Computable: Executable<Instance, Instance, Computable>{
 
-  delegate P call(Set<U>);
+  Instance call(Set<Instance> params){
+    
+    Instance cache = null;
+    
+    for(step in steps)
+      cache = step.call({
+        ...requirements,
+        cache
+      })
+    
+    return cache;
+    
+  }
 
 }
+
+class Instance: Producable, Usable{}
 ```
