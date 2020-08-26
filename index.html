@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function DB</title>
+
+  <script src="./DB.js"></script>
+
+</head>
+<body style="
+display: grid;
+place-items: center;">
+  
+  <object id="templates" data="./elements.html" type="text/html"></object>
+
+  <executable-card>
+    <executable-name slot="name">Some Function</executable-name>
+    <executable-output-description slot="output">Result</executable-output-description>
+    <executable-input-description slot="input">(Int, String, Bool, HotStuff)</executable-input-description>
+    <executable-script slot="script">
+      Multiply String and Int;<br>
+      If Bool, undo;<br>
+      Warmup HotStuff.
+    </executable-script>
+  </executable-card>
+
+</body>
+</html>

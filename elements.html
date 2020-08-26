@@ -1,0 +1,79 @@
+
+<template id="executable-card-template" data-tag-name="executable-card">
+  <div style="
+  padding: .5rem;
+  border: .1rem solid black;
+  border-radius: .4rem;
+  background: white;
+  display: flex;
+  flex-flow: column nowrap;">
+    
+    <h1 style="
+    margin: 0;
+    font-size: 1.6rem;
+    text-transform: capitalize;"><slot name=name></slot></h1>
+    
+    <div style="
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;">
+      
+      <h3><slot name=output></slot></h3>
+      <span style="white-space: pre-wrap;"> from </span>
+      <h3><slot name=input></slot></h3>
+
+    </div>
+    
+    <p style="margin-left: 1rem;"><slot name=script></slot></p>
+  
+    <button>New Execution</button>
+
+  </div>
+  <style>
+
+    h3{
+      margin: 0;
+    }
+
+    h1 + div{
+      margin-top: 1rem
+    }
+
+  </style>
+</template>
+
+<template id="script-string"></template>
+<template id="script-list"></template>
+
+
+<template id="input-string"></template>
+<template id="input-tuple"></template>
+
+<script>
+  
+  addEventListener('load', () => {
+
+    for( template of document.getElementsByTagName('TEMPLATE')){
+      
+      parent.customElements.define(
+        template.dataset.tagName || "x-x",
+        class extends parent.HTMLElement{
+
+          constructor(){
+
+            super()
+
+            this.attachShadow({mode: 'open'})
+
+            this.shadowRoot.append(template.content.cloneNode(true))
+
+          }
+
+        }
+      )
+    }
+    //#endregion
+
+  })
+
+</script>
