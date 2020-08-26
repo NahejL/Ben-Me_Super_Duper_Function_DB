@@ -2,10 +2,8 @@
 What can we do with the app ?
 ```c#
 class App {
-  
-private or protected:
 
-  Struct AppInfo {
+  protected Struct AppInfo {
     String name;
     String url;
     Float version;
@@ -14,36 +12,35 @@ private or protected:
     initializeApp(AppInfo);
   } appInfo
 
-  ParameterBlock {
+  public ParameterBlock {
   List< Type Extending Executable > instructions; // This can be a known and extendable instruction list
   List< View > views;        // Different UI components faced by user
     or
   HashMap< List< Type Extending Executable >, View >;
   }
   
-  createExecutable(
+  public createExecutable(
     Type Extending Producable result, 
     Set< Type Extending Usable > requirements, 
     List< Type Extending Executable > steps
   );
   
-public:
 //================================
 // Instruction Related
 //================================
-  addInstruction(
+  public addInstruction(
     Type Extending Executable step
   ) {
-    this -> instructions.add(step);
+    this.instructions.add(step);
   };
   
-  createInstruction(
+  public createInstruction(
     // Some translatable params
   ) {
     // Translate some file or string type to a step
   };
   
-  deleteInstruction(
+  protected deleteInstruction(
     Integer step#    or
     String  stepName or
     Type Extending Executable step
@@ -52,18 +49,18 @@ public:
 //================================
 // Access Related
 //================================
-  Boolean verifyLegalAccess(
+  public Boolean verifyLegalAccess(
              App Pointer nextApp,
              App Pointer currentApp,
              UserID      userId
           );
   
   // Returns next App under some conditions or after some executions
-  App Pointer accessNextApp(
+  public App Pointer accessNextApp(
                  App Pointer nextApp
               );
   
-  modifyAppAccess(
+  public modifyAppAccess(
     UserID userId
   );
 }
@@ -72,8 +69,7 @@ public:
 What are we expecting from the user ?
 ```c#
 class User {   
-public:
-  Struct UserID {
+  public Struct UserID {
      String id;
      String loginCredentials;
      String accessLevel;
@@ -86,27 +82,26 @@ public:
      );
    } userId;
    
-   getApp();
+   public getApp();
    
-   modifyAppParams(
+   public modifyAppParams(
       Type Extending Producable result, 
       Set< Type Extending Usable > requirements, 
       List< Type Extending Executable > steps
    );
    
-   accessView(
+   public accessView(
       App Pointer nextApp,
    ) {
      if (verifyLegalAccess(nextApp, this->CurrentApp, UserID userId)) then
-        this->CurrentApp = accessNextApp(nextApp);
+        this.CurrentApp = accessNextApp(nextApp);
    }
          
-private or protected:
-   App Pointer CurrentApp;  // General pointer to keep track of currently used app
+   protected App Pointer CurrentApp;  // General pointer to keep track of currently used app
    
-   adjustAppToAccess(
+   protected adjustAppToAccess(
       UserID,
       List< Type Extending Executable > extraSteps = NULL
-   );   
+   );
 }
 ```
