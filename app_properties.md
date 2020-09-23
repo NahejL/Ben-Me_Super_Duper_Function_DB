@@ -96,6 +96,15 @@ class User {
      if (verifyLegalAccess(nextApp, this->CurrentApp, UserID userId)) then
         this.CurrentApp = accessNextApp(nextApp);
    }
+   
+   //When scrolling or moving the view from user interaction
+   public moveView(
+      Position initPos,
+      Position nextPos,
+   ) {
+     createExecutable(...) //Create a "move" type executable
+   }
+     
          
    protected App Pointer CurrentApp;  // General pointer to keep track of currently used app
    
