@@ -17,4 +17,8 @@ class Usable<T>{
 class Executable<Result, Params as [Param]> where Param:> Usable, Result:> Producable {
    Result call(Params);
 }
+
+class Position<Pos>{
+   HashMap<int xPos, int yPos> pixPos; 
+}
 ```
